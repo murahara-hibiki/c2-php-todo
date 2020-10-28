@@ -27,6 +27,9 @@ class CreatePasswordResetsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('password_resets');
+        Schema::table('todos', function (Blueprint $table) {
+            $table->dropForeign('todos_user_id_foreign');
+            $table->dropColumn('user_id');
+        });
     }
 }
