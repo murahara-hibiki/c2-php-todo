@@ -24,7 +24,7 @@
                         </td>
                         <td>{{ $todo->due_date }}</td>
                         <!-- <td>
-                            <a href = "/todo/{"
+                            <a href = "/todo/{{  }}">
                         </td> -->
                     </tr>
                 @endforeach
