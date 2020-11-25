@@ -81,9 +81,17 @@ class TodoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CreateTodoRequest  $request, $id)
     {
-        //
+        //フォームから送信されたタスクを書き換える
+        $todo = Auth::yser()->todos()->findOrFail($id);
+        $todo->title = $request->title;
+        $todo->due_data = $request->due_data;
+        $todo->save();
+
+        //タスク単体のページにリダイレクト
+        return redirect()->to('/todo/' . $todo->id);
+
     }
 
     /**
