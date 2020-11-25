@@ -99,6 +99,6 @@ class TodoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        //消し方を書けばイケる
     }
 }
